@@ -6,10 +6,10 @@ export default function() {
       this.fromRoute('about'),
       this.use('explode', {
           pickOld: 'h1',
-          use: ['toLeft', {duration}],
+          use: ['toUp', {duration}],
         }, {
           pickNew: 'h1',
-          use: ['toRight', {duration}]
+          use: ['toDown', {duration}]
         }, {
           use: ['fade', {duration}]
         }
@@ -20,10 +20,10 @@ export default function() {
       this.fromRoute('contact'),
       this.use('explode', {
           pickOld: 'h1',
-          use: ['toLeft', {duration}],
+          use: ['toUp', {duration}],
         }, {
           pickNew: 'h1',
-          use: ['toRight', {duration}]
+          use: ['toDown', {duration}]
         }, {
           use: ['fade', {duration}]
         }
