@@ -1,4 +1,7 @@
-@import "bourbon";
+// Bourbon
+@import "../../bower_components/bourbon/app/assets/stylesheets/bourbon";
+
+// Meyer Reset
 @import "config/reset";
 
 * {
@@ -11,8 +14,9 @@ body {
 
 // Main Navigation
 #main-nav {
-	margin-top: 20px;
+	margin-top: 10%;
 	width: 80px;
+	padding: 0px 30px;
 	text-align: center;
 	ul {
 		li {
@@ -43,4 +47,12 @@ body {
 .container {
 	max-width: 1000px;
 	margin: 0px auto;
+	&.flex {
+		@include display(flex);
+	}
+}
+
+// Main Content
+#main-content {
+	width: 100%;
 }
