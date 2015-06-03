@@ -1,3 +1,27 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<div class="container flex">
 
-{{outlet}}
+	<nav id="main-nav">
+		<img id="main-logo" src="assets/images/logo.svg" alt="Tedd Arcuri's Logo" />
+		<ul>
+			<li>
+			 {{#link-to 'index'}}
+			 About
+			 {{/link-to}}
+			</li>
+			<li>
+			 {{#link-to 'index'}}
+			 Work
+			 {{/link-to}}
+			</li>
+			<li>
+			 {{#link-to 'index'}}
+			 Contact
+			 {{/link-to}}
+			</li>
+		</ul>
+	</nav>
+
+	<main id="main-content">
+		{{outlet}}
+	</main>
+</div>
