@@ -1,0 +1,46 @@
+@import "bourbon";
+@import "config/reset";
+
+* {
+	font-family: 'Proxima Nova';
+}
+
+body {
+	background: whitesmoke;
+}
+
+// Main Navigation
+#main-nav {
+	margin-top: 20px;
+	width: 80px;
+	text-align: center;
+	ul {
+		li {
+			margin: 20px 0px;
+			list-style: none;
+			a {
+				display: block;
+				padding: 10px;
+				font-family: 'Proxima Nova';
+				color: #aaa;
+				text-decoration: none;
+				&:hover {
+					background: #000;
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+
+// Main Logo
+#main-logo {
+	width: 70px;
+}
+
+// Containers
+.container {
+	max-width: 1000px;
+	margin: 0px auto;
+}
