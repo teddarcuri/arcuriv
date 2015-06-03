@@ -32,8 +32,7 @@ body {
 				color: #aaa;
 				text-decoration: none;
 				&:hover {
-					background: #000;
-					color: #fff;
+					color: #333;
 				}
 			}
 		}
@@ -57,5 +56,8 @@ body {
 
 // Main Content
 #main-content {
+	padding: 20px;
+	padding-top: 10%;
 	width: 100%;
+	min-height: 700px; // Remove me: only here to stop liquid fire animations from closing up
 }
