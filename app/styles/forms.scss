@@ -1,0 +1,25 @@
+input, textarea {
+    display: block;
+    width: 100%;
+    margin: 10px 0px;
+    background: #222;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    min-height: 40px;
+    padding: 10px;
+    max-width: 1000px;
+}
+
+button {
+    background: #444;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 20px 100px;
+    cursor: pointer;
+    &:hover {
+        background: #679931;
+    }
+}
