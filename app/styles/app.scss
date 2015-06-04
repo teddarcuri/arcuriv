@@ -4,50 +4,100 @@
 // Meyer Reset
 @import "config/reset";
 
+// Mixins
+@import "config/mixins";
+
 // Fonts
 @import "config/fonts";
 
+// Forms
+@import "forms";
+
+// Components
+@import "components/project-tile";
+@import "components/donut-chart";
+@import "components/gravatar-image";
+
 // Variables
 $nav-width: 80px;
+$nav-padding: 150px;
+$nav-padding-small: $nav-padding / 4;
+
+
 
 * {
 	font-family: 'Proxima Nova';
+	box-sizing: border-box;
 }
 
 body {
 	background: whitesmoke;
 }
 
+img {
+	border-radius: 200%;
+}
+
 // Main Navigation
 #main-nav {
-	margin-top: 10%;
-	width: $nav-width;
+	padding-top: 100px;
+	padding-left: $nav-padding;
+	height: 100%;
 	text-align: center;
-	position: absolute;
-	top: 0;
-	left: 0;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 999;
+
+	@include bp(900px) {
+		padding-left: $nav-padding-small;
+	}
+
+	@include bp(600px) {
+		padding: 15px;
+		height: auto;
+		width: 100%;
+	}
+
 	ul {
+		display: inline-block;
+		@include bp(600px) {
+			position: absolute;
+			right: 10px;
+			top: 10px;
+		}
 		li {
 			margin: 20px 0px;
 			list-style: none;
+			@include bp(600px) {
+				display: inline-block;
+				padding: 0px 10px;
+			}
 			a {
 				display: block;
-				padding: 10px;
+				padding: 10px 0px;
 				font-family: 'Proxima Nova';
-				color: #aaa;
+				color: #444;
 				text-decoration: none;
+				text-align: center;
 				&:hover {
-					color: #333;
+					color: #aaa;
+				}
+				&.active {
+					border-bottom: solid 2px #444;
 				}
 			}
 		}
 	}
 }
 
-
 // Main Logo
 #main-logo {
 	width: 70px;
+	display: block;
+	@include bp(600px) {
+		width: 55px;
+	}
 }
 
 // Containers
@@ -55,18 +105,34 @@ body {
 	max-width: 1000px;
 	margin: 0px auto;
 	position: relative;
-	&.flex {
-		@include display(flex);
-	}
 }
 
-#main-container {
-	padding-left: $nav-width + 30;
+.flex {
+	@include display(flex);
+}
+
+// Columns
+// REDO ME WITH BOURBON NEAT!
+.half {
+	float: left;
+	width: 50%;
+	display: inline-block;
+	@include bp(600px) {
+		width: 100%;
+		float: none;
+	}
 }
 
 // Main Content
 #main-content {
-	padding: 100px;
+	padding: 0px 100px 50px $nav-padding + $nav-width * 2;
 	width: 100%;
-	min-height: 700px; // Remove me: only here to stop liquid fire animations from closing up
+	@include bp(900px) {
+		padding: 0px 100px 50px $nav-padding-small + $nav-width * 2;
+	}
+	@include bp(600px) {
+		padding: 20px;
+		padding-top: 0px;
+		width: 100%;
+	}
 }

@@ -1,8 +1,9 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({    
+export default Ember.Component.extend({
   size: 200,
   email: '',
+  classNames: ['gravatar-image'],
 
   gravatarUrl: function() {
     var email = this.get('email'),

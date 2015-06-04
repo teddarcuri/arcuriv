@@ -1,9 +1,90 @@
+//Languages
+
+$javascript: #bfa834;
+$ruby: #e2433b;
+$php: #c248e0;
+$html: #489fe0;
+$css: #39c69e;
+
+.javascript {
+    color: #bfa834;
+}
+
+.ruby {
+    color: $ruby;
+}
+
+.php {
+    color: $php;
+}
+
+.html {
+    color: $html;
+}
+
+.css {
+    color:$css;
+}
+
+// HEADERS
 h1 {
-    font-size: 2em;
+    font-size: 4em;
     font-family: 'Proxima Nova';
+    margin-bottom: 20px;
+    padding-top: 100px;
+    color: #444;
+    font-weight: 700;
+
+    @include bp(600px) {
+        font-size: 2em;
+    }
+
+    span {
+        font-size: 0.3em;
+        font-weight: 300;
+        margin: 0px 10px;
+    }
+}
+
+h2{
+    font-size: 2em;
+    color: #777;
+    font-weight: 700;
+    margin: 20px 0px;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #aaa;
+    font-weight: 700;
     margin-bottom: 10px;
 }
 
 p {
+    margin: 20px 0px;
     line-height: 1.7em;
+}
+
+a {
+    &.btn {
+        margin: 50px 0px;
+        background: #444;
+        color: #fff;
+        border: none;
+        outline: none;
+        height: auto;
+        padding: 20px 100px;
+        line-height: 4em;
+        text-decoration: none;
+        cursor: pointer;
+        margin-right: 7px;
+        &:hover {
+            background: #222;
+        }
+    }
+}
+
+span {
+    font-size: 1.2em;
+    color: #aaa;
 }

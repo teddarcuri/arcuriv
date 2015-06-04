@@ -1,5 +1,3 @@
-<div id="main-container" class="container flex">
-
 	<nav id="main-nav">
 		<img id="main-logo" src="assets/images/logo.svg" alt="Tedd Arcuri's Logo" />
 		<ul>
@@ -9,12 +7,12 @@
 			 {{/link-to}}
 			</li>
 			<li>
-			 {{#link-to 'index'}}
+			 {{#link-to 'projects'}}
 			 Work
 			 {{/link-to}}
 			</li>
 			<li>
-			 {{#link-to 'about'}}
+			 {{#link-to 'index'}}
 			 Thoughts
 			 {{/link-to}}
 			</li>
@@ -29,4 +27,5 @@
 	<main id="main-content">
 		{{liquid-outlet}}
 	</main>
-</div>
+
+	{{pageTitle}}

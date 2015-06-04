@@ -17,4 +17,5 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 app.import('bower_components/js-md5/js/md5.js');
+app.import('bower_components/easypie/dist/jquery.easypiechart.js');
 module.exports = app.toTree();
