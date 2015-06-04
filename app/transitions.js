@@ -1,6 +1,6 @@
 export default function() {
 
-    let duration = 700;
+    let duration = 750;
 
     this.transition(
       this.fromRoute('about'),
@@ -10,8 +10,22 @@ export default function() {
         }, {
           pickNew: 'h1',
           use: ['toDown', {duration}]
+        },{
+          use: ['fade', {duration: duration/2}]
+        }
+      )
+    );
+
+    this.transition(
+      this.fromRoute('projects'),
+      this.use('explode', {
+          pickOld: 'h1',
+          use: ['toUp', {duration}],
         }, {
-          use: ['fade', {duration}]
+          pickNew: 'h1',
+          use: ['toDown', {duration}]
+        }, {
+          use: ['fade', {duration: duration/2}]
         }
       )
     );
@@ -25,7 +39,7 @@ export default function() {
           pickNew: 'h1',
           use: ['toDown', {duration}]
         }, {
-          use: ['fade', {duration}]
+          use: ['fade', {duration: duration/2}]
         }
       )
     );
