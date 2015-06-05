@@ -18,4 +18,8 @@ var app = new EmberApp();
 // along with the exports of each module as its value.
 app.import('bower_components/js-md5/js/md5.js');
 app.import('bower_components/easypie/dist/jquery.easypiechart.js');
+app.import('bower_components/flickity/dist/flickity.pkgd.min.js');
+app.import('bower_components/flickity/css/flickity.css');
+app.import('bower_components/velocity/velocity.js');
+app.import('bower_components/velocity/velocity.ui.js');
 module.exports = app.toTree();

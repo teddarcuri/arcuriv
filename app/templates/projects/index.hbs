@@ -1,0 +1,12 @@
+<div class="projects-container">
+    <h1>My Work</h1>
+
+    <div class="content">
+        {{#each model as |project|}}
+            {{#link-to 'projects.project' project.id}}
+                {{project-tile id=project.id name=project.name thumbnail=project.thumbnail }}
+            {{/link-to}}
+        {{/each}}
+    </div>
+
+</div>

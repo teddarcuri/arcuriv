@@ -14,6 +14,8 @@
     "qunit": "~1.17.1",
     "bourbon": "~4.2.3",
     "js-md5": "~1.1.0",
-    "easypie": "~2.1.6"
+    "easypie": "~2.1.6",
+    "flickity": "~1.0.2",
+    "velocity": "~1.2.2"
   }
 }

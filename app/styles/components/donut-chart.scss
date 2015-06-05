@@ -3,4 +3,14 @@
     padding: 10px;
     text-align: center;
     line-height: 2em;
+    position: relative;
+    span {
+        position: absolute;
+        top: 0; left: 0;
+        display: block;
+        font-size: 0.8em;
+        width: 100%; height: 100%;
+        text-align: center;
+        line-height: 100px;
+    }
 }

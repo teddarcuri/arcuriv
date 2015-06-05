@@ -10,10 +10,10 @@ export default Ember.Component.extend({
       $('.donut-chart').easyPieChart({
             scaleColor: false,
             scaleLength: 0,
-            lineCap: 'square',
-            lineWidth: 4,
-            size: 100,
-            animate: 2750
+            lineCap: 'round',
+            lineWidth: 3,
+            size: 80,
+            animate: 3050
         });
 
    }.on('didInsertElement')

@@ -1,9 +1,52 @@
 .project-tile {
-    width: 125px;
-    height: 125px;
-    margin: 5px;
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    margin-bottom: 20px;
     display: inline-block;
     float: left;
-    background: url("/assets/images/rootspring.jpg") center center;
-    background-size: 300%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 200%;
+
+    &:hover {
+        .name {
+            @include transform(scale(1));
+        }
+        .thumbnail {
+            @include transform( scale(1.5) rotate(-0deg) );
+        }
+    }
+
+    a {
+        position: absolute;
+        top: 0; left: 0;
+        display: block;
+        height: 100%; width: 100%;
+    }
+
+    .thumbnail {
+        width: 100%;
+        border-radius: 200% !important;
+        @include transition(all ease 0.5s);
+    }
+    .name {
+        color: #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 200%;
+        background: /* url("/assets/images/icons/eye.svg") */ center 15px no-repeat rgba(0,0,0,0.8);
+        background-size: 70%;
+        display: block;
+        text-align: center;
+        /* line-height: 125px; */
+        padding-top: 45px;
+        font-weight: 700;
+        font-size: 0.85em;
+        height: 100%; width: 100%;
+        @include transition(all ease 0.5s);
+        @include transform(scale(0));
+    }
 }

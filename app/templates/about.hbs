@@ -1,18 +1,15 @@
-<h1>Hello, my name is Tedd.</h1>
+<h1>
+    {{gravatar-image email="tedd.arcuri@gmail.com" size=120}}
+    Hello, my name is Tedd.
+</h1>
 
-{{gravatar-image email="tedd.arcuri@gmail.com" size=120}}
-<img src="assets/images/colorado.png" alt="" />
-
-<div class="halfs">
-
+<div class="content">
     <p>
-
-        I am a web designer + front-end engineer currently living in Denver, Colorado; Born and raised in Colorado Springs. <br>
-        I enjoy creating intuitive + purposeful user interfaces backed by simple + elegant design.<br>
-        I meticulously craft my work line by line, pixel by pixel.
+        <b>Web designer + front-end engineer</b> currently living in <b>Denver, Colorado</b>; Born and raised in Colorado Springs. <br>
+        I enjoy creating intuitive + purposeful user interfaces by employing effective + elegant design.<br>
+        <!-- <b>I design. I code. I solve problems.</b> -->
     </p>
 
-    <br>
     <div>
         {{#link-to 'projects' class="btn"}}
             See My Work
@@ -20,46 +17,66 @@
         {{#link-to 'contact' class="btn"}}
             Get in touch
         {{/link-to}}
-        {{#link-to 'projects' class="btn"}}
-            My thoughts
-        {{/link-to}}
     </div>
 
     <br><br>
 
-    <h2>Development Skills</h2>
+
+
+    <h2>Primary Development Skills</h2>
     <br>
 
-    <h3>Languages</h3>
-    {{donut-chart name="javascript" percent=80 color="#e2ca3b" track-color="#fff"}}
-    {{donut-chart name="ruby" percent=55 color="#e2433b" track-color="#fff"}}
-    {{donut-chart name="php" percent=70 color="#c248e0" track-color="#fff"}}
-    {{donut-chart name="html" percent=75 color="#489fe0" track-color="#fff"}}
-    {{donut-chart name="css" percent=90 color="#39c69e" track-color="#fff"}}
+    <!-- <h3>Languages</h3> -->
+    {{donut-chart name="html" percent=100 color="#489fe0" track-color="whitesmoke"}}
+    {{donut-chart name="css" percent=100 color="#39c69e" track-color="whitesmoke"}}
+    {{donut-chart name="javascript" percent=100 color="#e29a3b" track-color="whitesmoke"}}
+    {{donut-chart name="ruby" percent=100 color="#e2433b" track-color="whitesmoke"}}
+    {{donut-chart name="php" percent=100 color="#a544b0" track-color="whitesmoke"}}
+    {{donut-chart name="git" percent=100 color="#aaa" track-color="whitesmoke"}}
+    {{donut-chart name="photoshop" percent=100 color="#489fe0" track-color="whitesmoke"}}
+    {{donut-chart name="illustrator" percent=100 color="#e2ca3b" track-color="whitesmoke"}}
+    <br>
 
-    <br><br><br>
+
+    <h3>Concepts / Tech / Frameworks I have leveraged:</h3>
+    <ul class="columns-3">
+        <li>Ember</li>
+        <li>Rails</li>
+        <li>JQuery</li>
+        <li>Sass</li>
+        <li>Drupal</li>
+        <li>Wordpress</li>
+        <li>RESTful Web Services</li>
+        <li>MVC</li>
+        <li>SQL Databases</li>
+        <li>Ember</li>
+        <li>Sass</li>
+        <li>Build systems</li>
+    </ul>
+
+    <!-- <br><br><br>
     <h3>Platforms | Tech | Frameworks | Etc</h3>
-    {{donut-chart name="ember" percent=80 color="#e2ca3b" track-color="#fff"}}
-    {{donut-chart name="rails" percent=70 color="#e2433b" track-color="#fff"}}
-    {{donut-chart name="drupal" percent=55 color="#c248e0" track-color="#fff"}}
-    {{donut-chart name="wordpress" percent=60 color="#489fe0" track-color="#fff"}}
-    {{donut-chart name="sass" percent=90 color="#39c69e" track-color="#fff"}}
-    {{donut-chart name="git" percent=50 color="#aaa" track-color="#fff"}}
-    {{donut-chart name="photoshop" percent=60 color="#489fe0" track-color="#fff"}}
-    {{donut-chart name="illustrator" percent=80 color="#e2ca3b" track-color="#fff"}}
-    {{donut-chart name="indesign" percent=70 color="#e2433b" track-color="#fff"}}
+    {{donut-chart name="ember" percent=80 color="#e2ca3b" track-color="whitesmoke"}}
+    {{donut-chart name="rails" percent=75 color="#e2433b" track-color="whitesmoke"}}
+    {{donut-chart name="drupal" percent=55 color="#a544b0" track-color="whitesmoke"}}
+    {{donut-chart name="wordpress" percent=60 color="#489fe0" track-color="whitesmoke"}}
+    {{donut-chart name="sass" percent=95 color="#39c69e" track-color="whitesmoke"}}
+    {{donut-chart name="git" percent=60 color="#aaa" track-color="whitesmoke"}}
+    {{donut-chart name="photoshop" percent=75 color="#489fe0" track-color="whitesmoke"}}
+    {{donut-chart name="illustrator" percent=90 color="#e2ca3b" track-color="whitesmoke"}}
+    {{donut-chart name="indesign" percent=40 color="#e2433b" track-color="whitesmoke"}} -->
+
+    <br>
+
+
+
+    <!-- <hr>
+    Skills piecharts
+    <hr>
+    Work History
+    <hr>
+    Interests and Focus
+    <hr> -->
+    {{outlet}}
 
 </div>
-
-<br>
-
-
-
-<!-- <hr>
-Skills piecharts
-<hr>
-Work History
-<hr>
-Interests and Focus
-<hr> -->
-{{outlet}}
