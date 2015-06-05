@@ -10,7 +10,14 @@ Ember.MODEL_FACTORY_INJECTIONS = true;
 App = Ember.Application.extend({
   modulePrefix: config.modulePrefix,
   podModulePrefix: config.podModulePrefix,
-  Resolver: Resolver
+  Resolver: Resolver,
+  LOG_TRANSITIONS: true,
+
+  // Extremely detailed logging, highlighting every internal
+  // step made while transitioning into a route, including
+  // `beforeModel`, `model`, and `afterModel` hooks, and
+  // information about redirects and aborted transitions
+  LOG_TRANSITIONS_INTERNAL: true
 });
 
 loadInitializers(App, config.modulePrefix);
