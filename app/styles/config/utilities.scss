@@ -2,3 +2,27 @@
     border-radius: 200%;
     overflow: hidden;
 }
+
+.half {
+    width: 50%;
+}
+
+
+.col-1 {
+    @include span-columns(12);
+    @include omega;
+    margin: 30px 0px;
+}
+
+.col-1-2 {
+    @include span-columns(6);
+    @include omega(2n);
+    &:nth-child(1) {
+        padding-right: 20px;
+    }
+
+    @include bp(600px) {
+        @include span-columns(12);
+        @include omega(1n);
+    }
+}

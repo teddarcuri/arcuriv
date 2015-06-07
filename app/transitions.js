@@ -1,6 +1,16 @@
 export default function() {
 
-    let duration = 1050;
+    let duration = 700;
+
+    // From index to about
+    this.transition(
+      this.fromRoute('index'),
+      this.toRoute('about'),
+      this.use('explode',
+      { matchBy: 'data-image', use: ['flyTo', {duration}] },
+      { use: ['fade', {duration: duration/ 2 }] }
+      )
+    );
 
     // To About
     this.transition(
@@ -35,10 +45,13 @@ export default function() {
       this.toRoute('projects.project'),
       this.use('explode',
         {matchBy: 'data-project-img', use: ['flyTo', {duration: duration}]},
+        { pickOld: 'h1', use: ['toUp', {duration}] },
         {use: ['fade', {duration: duration / 2}] }
       ),
       this.reverse('explode',
         {matchBy: 'data-project-img', use: ['flyTo', {duration: duration}]},
+        { pickNew: 'h1', use: ['toDown', {duration}] },
+        { pickOld: 'h1', use: ['toUp', {duration}] },
         {use: ['fade', {duration: duration / 2}] }
       )
     );

@@ -5,78 +5,46 @@
 
 <div class="content">
     <p>
-        <b>Web designer + front-end engineer</b> currently living in <b>Denver, Colorado</b>; Born and raised in Colorado Springs. <br>
+        <b>Designer + front-end engineer</b> currently living in <b>Denver, Colorado</b>; Born and raised in Colorado Springs. <br>
         I enjoy creating intuitive + purposeful user interfaces by employing effective + elegant design.<br>
+        I have a strong background in design, but also enjoy getting my hands dirty in the backend of web technologies.
         <!-- <b>I design. I code. I solve problems.</b> -->
     </p>
 
-    <div>
-        {{#link-to 'projects' class="btn"}}
-            See My Work
-        {{/link-to}}
-        {{#link-to 'contact' class="btn"}}
-            Get in touch
-        {{/link-to}}
+
+    <div class="container">
+        <div class="col-1-2">
+            <h2>Production Skills</h2>
+            <br>
+            {{donut-chart name="html" percent=100 color="#489fe0" track-color="whitesmoke"}}
+            {{donut-chart name="css" percent=100 color="#39c69e" track-color="whitesmoke"}}
+            {{donut-chart name="javascript" percent=80 color="#e29a3b" track-color="whitesmoke"}}
+            {{donut-chart name="ruby" percent=60 color="#e2433b" track-color="whitesmoke"}}
+            {{donut-chart name="php" percent=50 color="#a544b0" track-color="whitesmoke"}}
+            {{donut-chart name="git" percent=75 color="#aaa" track-color="whitesmoke"}}
+            {{donut-chart name="photoshop" percent=80 color="#489fe0" track-color="whitesmoke"}}
+            {{donut-chart name="illustrator" percent=100 color="#e2ca3b" track-color="whitesmoke"}}
+            <br>
+        </div>
+
+        <div class="col-1-2">
+            <h2>Tech + Concepts</h2>
+            <p class="columns-3">
+                <span>Ember</span>
+                <span>Rails</span>
+                <span>JQuery</span>
+                <span>Sass</span>
+                <span>Drupal</span>
+                <span>Wordpress</span>
+                <span>RESTful Web Services</span>
+                <span>MVC</span>
+                <span>SQL Databases</span>
+                <span>Bower</span>
+                <span>Build systems</span>
+                <span>Agile</span>
+            </p>
+        </div>
     </div>
 
-    <br><br>
-
-
-
-    <h2>Primary Development Skills</h2>
-    <br>
-
-    <!-- <h3>Languages</h3> -->
-    {{donut-chart name="html" percent=100 color="#489fe0" track-color="whitesmoke"}}
-    {{donut-chart name="css" percent=100 color="#39c69e" track-color="whitesmoke"}}
-    {{donut-chart name="javascript" percent=100 color="#e29a3b" track-color="whitesmoke"}}
-    {{donut-chart name="ruby" percent=100 color="#e2433b" track-color="whitesmoke"}}
-    {{donut-chart name="php" percent=100 color="#a544b0" track-color="whitesmoke"}}
-    {{donut-chart name="git" percent=100 color="#aaa" track-color="whitesmoke"}}
-    {{donut-chart name="photoshop" percent=100 color="#489fe0" track-color="whitesmoke"}}
-    {{donut-chart name="illustrator" percent=100 color="#e2ca3b" track-color="whitesmoke"}}
-    <br>
-
-
-    <h3>Concepts / Tech / Frameworks I have leveraged:</h3>
-    <ul class="columns-3">
-        <li>Ember</li>
-        <li>Rails</li>
-        <li>JQuery</li>
-        <li>Sass</li>
-        <li>Drupal</li>
-        <li>Wordpress</li>
-        <li>RESTful Web Services</li>
-        <li>MVC</li>
-        <li>SQL Databases</li>
-        <li>Ember</li>
-        <li>Sass</li>
-        <li>Build systems</li>
-    </ul>
-
-    <!-- <br><br><br>
-    <h3>Platforms | Tech | Frameworks | Etc</h3>
-    {{donut-chart name="ember" percent=80 color="#e2ca3b" track-color="whitesmoke"}}
-    {{donut-chart name="rails" percent=75 color="#e2433b" track-color="whitesmoke"}}
-    {{donut-chart name="drupal" percent=55 color="#a544b0" track-color="whitesmoke"}}
-    {{donut-chart name="wordpress" percent=60 color="#489fe0" track-color="whitesmoke"}}
-    {{donut-chart name="sass" percent=95 color="#39c69e" track-color="whitesmoke"}}
-    {{donut-chart name="git" percent=60 color="#aaa" track-color="whitesmoke"}}
-    {{donut-chart name="photoshop" percent=75 color="#489fe0" track-color="whitesmoke"}}
-    {{donut-chart name="illustrator" percent=90 color="#e2ca3b" track-color="whitesmoke"}}
-    {{donut-chart name="indesign" percent=40 color="#e2433b" track-color="whitesmoke"}} -->
-
-    <br>
-
-
-
-    <!-- <hr>
-    Skills piecharts
-    <hr>
-    Work History
-    <hr>
-    Interests and Focus
-    <hr> -->
-    {{outlet}}
 
 </div>

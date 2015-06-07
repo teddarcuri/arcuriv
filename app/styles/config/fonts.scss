@@ -28,7 +28,7 @@ $css: #39c69e;
 
 // HEADERS
 h1 {
-    font-size: 4em;
+    font-size: 3.33em;
     font-family: 'Proxima Nova';
     margin-bottom: 20px;
     padding-top: 100px;
@@ -84,7 +84,6 @@ a {
         outline: none;
         height: auto;
         padding: 20px 100px;
-        line-height: 4em;
         text-decoration: none;
         cursor: pointer;
         margin-right: 7px;
@@ -96,7 +95,7 @@ a {
 
 span {
     font-size: 1.2em;
-    color: #aaa;
+    color: #333;
 }
 
 // Lists and shit
