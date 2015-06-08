@@ -1,13 +1,17 @@
 .project-tile {
-    width: 100px;
-    height: 100px;
-    margin-right: 25px;
-    margin-bottom: 25px;
-    display: inline-block;
-    float: left;
-    position: relative;
+    @include span-columns(3 of 12);
+    padding: 10px;
+    max-width: 120px;
+    //@include omega(4n);
+    /* margin-right: 25px;
+    margin-bottom: 25px; */
+    //position: relative;
     z-index: 1;
     border-radius: 200%;
+
+    @include bp(600px) {
+        @include span-columns(4 of 12);
+    }
 
     &:hover {
        .name {
@@ -28,11 +32,13 @@
     }
 
     .thumbnail {
-        width: 100%;
+        max-width: 100%; height: auto;
+        display: block;
+        position: relative;
         border-radius: 200% !important;
-        @include transition(all ease 0.75s);
+        @include transition(transform ease-in-out 0.5s);
     }
-    
+
     .name {
         color: #fff;
         position: absolute;
