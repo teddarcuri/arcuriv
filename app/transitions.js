@@ -2,22 +2,42 @@ export default function() {
 
     let duration = 700;
 
-    // From index to about
+    // Show/Hide the nav
     this.transition(
-      this.fromRoute('index'),
-      this.toRoute('about'),
-      this.use('explode',
-      { matchBy: 'data-image', use: ['flyTo', {duration}] },
-      { use: ['fade', {duration: duration/ 2 }] }
-      )
+       this.hasClass('nav-toggle'),
+
+       // this makes our rule apply when the liquid-if transitions to the
+       // true state.
+       this.toValue(true),
+       this.use('explode',
+        {matchBy: 'data-image', use: ['flyTo', {duration: duration}]},
+        { use: ['fade', {duration: duration / 2 }] }
+       ),
+
+       // which means we can also apply a reverse rule for transitions to
+       // the false state.
+       this.reverse('fade', {duration}),
+       this.debug()
+     );
+
+    // To index
+    this.transition(
+      this.toRoute('index'),
+      this.use('fade', {duration: duration / 2})
     );
+
+    // To index
+    // this.transition(
+    //   this.fromRoute('index'),
+    //   this.use('toUp', {duration: duration / 2})
+    // );
 
     // To About
     this.transition(
       this.toRoute('about'),
       this.use('explode',
       { pickNew: 'h1', use: ['toDown', {duration}] },
-      { use: ['fade', {duration: duration/ 2 }] }
+      { use: ['fade', {duration: duration / 2 }] }
       )
     );
 

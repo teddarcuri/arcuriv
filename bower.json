@@ -17,6 +17,7 @@
     "js-md5": "~1.1.0",
     "easypie": "~2.1.6",
     "flickity": "~1.0.2",
-    "velocity": "~1.2.2"
+    "velocity": "~1.2.2",
+    "zoom.js": "~0.0.1"
   }
 }

@@ -22,4 +22,7 @@ app.import('bower_components/flickity/dist/flickity.pkgd.min.js');
 app.import('bower_components/flickity/css/flickity.css');
 app.import('bower_components/velocity/velocity.js');
 app.import('bower_components/velocity/velocity.ui.js');
+app.import('bower_components/zoom.js/js/zoom.js');
+app.import('bower_components/zoom.js/css/zoom.css');
+app.import('vendor/js/bootstrap/transition.js');
 module.exports = app.toTree();

@@ -5,17 +5,6 @@
         {{model.name}}
     </h1>
 
-    <div class="project-infobar">
-        <div class="project-types">
-            {{model.types}}
-        </div>
-
-        <a href="http://www.colorado.gov" target="_blank" class="pill-btn">View Site</a>
-
-        {{#link-to 'projects.index' class="pill-btn"}}
-            Back to All Projects
-        {{/link-to}}
-    </div>
 
     <div class="flickity-gallery">
         {{#each model.photos}}
@@ -24,6 +13,32 @@
             </div>
         {{/each}}
     </div>
+
+
+    <div class="container">
+        <div class="flickity-nav">
+            {{#each model.photos}}
+                <div class="gallery-cell">
+                    <img src={{this}} alt="" />
+                </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="project-infobar">
+        <div class="project-types">
+            {{model.types}}
+        </div>
+
+        {{#if model.url}}
+            <a href={{model.url}} target="_blank" class="pill-btn">View Site</a>
+        {{/if}}
+
+        {{#link-to 'projects.index' class="pill-btn"}}
+            Back to All Projects
+        {{/link-to}}
+    </div>
+
 
     <div class="container">
         <div class="col-1-2">

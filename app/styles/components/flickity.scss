@@ -1,4 +1,5 @@
 .flickity-gallery {
+    margin-top: 20px;
 
     &:hover {
         .flickity-prev-next-button {
@@ -9,6 +10,18 @@
     .gallery-cell {
         width: 100%;
         height: 360px;
+        @include bp(1200px) {
+            height: 300px;
+        }
+
+        @include bp(900px) {
+            height: 250px;
+        }
+
+        @include bp(750px) {
+            height: 150px;
+        }
+
         img {
             display: block;
             margin: auto;
@@ -54,4 +67,44 @@
             display: none;
         }
     }
+}
+
+
+/// Navigation
+
+.flickity-nav {
+    margin-top: 20px;
+
+    @include bp(500px){
+        padding: 0px 20px;
+    }
+
+    .gallery-cell {
+        width: 20%;
+        height: 90px;
+        border-bottom: solid 1px transparent;
+        padding: 10px 0px;
+        margin: 0px 10px;
+        cursor: pointer;
+        @include transition(all ease 0.5s);
+
+        @include bp(500px){
+            height: 70px;
+            width: 33%;
+        }
+
+        &:hover {
+            @include transform( translateY(0px) scale(1.1) );
+        }
+
+        &.is-nav-selected {
+            z-index: 99;
+            @include transform( translateY(0px) scale(1.25) );
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
 }

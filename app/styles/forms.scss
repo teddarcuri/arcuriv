@@ -1,3 +1,9 @@
+form {
+    @include bp(600px) {
+        padding: 0px 20px;
+    }
+}
+
 input, textarea {
     display: block;
     width: 100%;
@@ -15,6 +21,14 @@ input, textarea {
 
 textarea {
     min-height: 400px;
+    @include transition(background ease-in-out 0.3s);
+    &:focus {
+        background: #222;
+        color: whitesmoke;
+    }
+    @include bp(600px) {
+        min-height: 200px;
+    }
 }
 
 button {

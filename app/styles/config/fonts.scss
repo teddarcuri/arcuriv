@@ -26,22 +26,32 @@ $css: #39c69e;
     color:$css;
 }
 
+$font-family: "Helvetica Neue";
+
 // HEADERS
 h1 {
     font-size: 3.33em;
-    font-family: 'Proxima Nova';
+    font-family: $font-family;
     margin-bottom: 20px;
     padding-top: 100px;
     color: #444;
     font-weight: 700;
+    display: block;
 
-    @include bp(600px) {
+    @include bp(750px) {
         font-size: 2em;
+        padding: 100px 10px 0px 20px;
+        img {
+            margin-bottom: 10px;
+            width: 50px !important;
+            height: 50px !important;
+        }
     }
 
     img {
         vertical-align: middle;
         height: 70px;
+        width: 70px;
         border-radius: 200%;
     }
 
