@@ -8,6 +8,7 @@ export default Ember.Route.extend({
          $(".donut-chart").velocity("transition.expandIn", {stagger: 250}, 4000);
          // Slide in technology columns
          $("p").velocity("transition.slideUpIn", 2000);
+
        });
      }
 });

@@ -19,5 +19,8 @@
     "flickity": "~1.0.2",
     "velocity": "~1.2.2",
     "zoom.js": "~0.0.1"
+  },
+  "devDependencies": {
+    "three.js": "~0.71.0"
   }
 }

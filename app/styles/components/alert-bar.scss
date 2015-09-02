@@ -1,0 +1,14 @@
+#alert-bar {
+    background: $css;
+    color: #fff;
+    padding: 50px;
+    width: 100%;
+    z-index: 999;
+    position: fixed;
+    @include transition(all ease 0.5s);
+    bottom: 0; left: 0;
+    @include transform(translateY(100%));
+    &.active {
+        @include transform(translateY(0%));
+    }
+}

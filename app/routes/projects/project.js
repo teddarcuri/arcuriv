@@ -2,7 +2,27 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     model: function(params) {
-        return this.store.find('project', params.project_id);
+        return $.getJSON("http://localhost:1337/project/" + params.project_id);
+    },
+    actions: {
+        updateProject: function() {
+            alert();
+        },
+        deleteProject: function(id) {
+            var route = this;
+            $.ajax({
+                url: "http://localhost:1337/project/" + id,
+                method: "DELETE",
+                success: function() {
+                    $("#alert-bar").html("successfully deleted " + id);
+                    $("#alert-bar").addClass('active');
+                    setTimeout(function(){
+                        $("#alert-bar").removeClass('active');
+                    }, 3000),
+                    route.transitionTo('projects.index');
+                }
+            });
+        }
     },
     setupController: function(controller, model){
         this._super(controller, model);

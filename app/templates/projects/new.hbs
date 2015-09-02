@@ -1,0 +1,15 @@
+<form  {{action "createProject" name description thumbnail on="submit"}}>
+    <h1>
+        New Project
+        <span>
+            {{#link-to 'projects.index' classNames="pill-btn"}}
+                {{fa-icon 'arrow-left'}}
+            {{/link-to}}
+        </span>
+    </h1>
+    {{input type="text" value=name placeholder="Project Name"}}
+    {{input type="file" value=thumbnail}}
+    {{input type="text" value=thumbnail placeholder="Path to Thumbnail"}}
+    {{textarea value=description placeholder="Project Description"}}
+    <button type="submit" name="submit">Create Project</button>
+</form>

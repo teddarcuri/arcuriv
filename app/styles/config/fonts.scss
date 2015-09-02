@@ -1,5 +1,4 @@
 //Languages
-
 $javascript: #e29a3b;
 $ruby: #e2433b;
 $php: #c248e0;
@@ -26,21 +25,25 @@ $css: #39c69e;
     color:$css;
 }
 
-$font-family: "Helvetica Neue";
+$font-family: "Proxima Nova";
 
 // HEADERS
 h1 {
-    font-size: 3.33em;
+    font-size: 5em;
     font-family: $font-family;
     margin-bottom: 20px;
     padding-top: 100px;
-    color: #444;
+    color: #222;
     font-weight: 700;
     display: block;
 
+    &.large {
+        font-size: 8em;
+    }
+
     @include bp(750px) {
-        font-size: 2em;
-        padding: 100px 10px 0px 20px;
+        font-size: 3em;
+        padding: 30px 10px 0px 20px;
         img {
             margin-bottom: 10px;
             width: 50px !important;
@@ -48,17 +51,22 @@ h1 {
         }
     }
 
+    // Project Images and the like
     img {
-        vertical-align: middle;
-        height: 70px;
-        width: 70px;
+        vertical-align: bottom;
+        height: 90px;
+        width: 90px;
         border-radius: 200%;
     }
 
+    // Back, edit, new buttons and the like
     span {
         font-size: 0.3em;
         font-weight: 300;
         margin: 0px 10px;
+        .pill-btn {
+            vertical-align: top;
+        }
     }
 }
 
@@ -66,7 +74,7 @@ h2{
     font-size: 2em;
     color: #777;
     font-weight: 700;
-    margin: 20px 0px;
+    margin-bottom: 20px;
 }
 
 h3 {

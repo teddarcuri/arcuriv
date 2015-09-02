@@ -8,23 +8,25 @@ input, textarea {
     display: block;
     width: 100%;
     margin: 10px 0px;
-    background: whitesmoke;
-    color: #222;
+    background: #222;
+    color: #fff;
     border: none;
     outline: none;
     font-size: 1em;
     min-height: 40px;
     max-width: 1000px;
-    border: solid 2px #222;
+    border: solid 2px #fff;
     padding: 15px;
 }
 
 textarea {
     min-height: 400px;
+    background: #222;
+    color: whitesmoke;
     @include transition(background ease-in-out 0.3s);
     &:focus {
         background: #222;
-        color: whitesmoke;
+
     }
     @include bp(600px) {
         min-height: 200px;
@@ -32,14 +34,15 @@ textarea {
 }
 
 button {
-    background: transparent;
-    color: #222;
+    background:#222;
+    color: whitesmoke;
     border: solid 2px #222;
     outline: none;
     padding: 12px 70px;
     cursor: pointer;
     border-radius: 20px;
     margin: 10px 0px;
+    font-size: 1em;
     &:hover {
         background: #222;
         color: #fff;

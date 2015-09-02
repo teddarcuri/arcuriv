@@ -1,20 +1,53 @@
-<div id="welcome-screen">
-    <h1>
-        <!-- Logo -->
-        <svg id="loading-logo" data-image="main-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        viewBox="0 0 792 612" enable-background="new 0 0 792 612" xml:space="preserve">
-            <g>
-            <path id="a" fill="none" stroke="#444" stroke-width="4" stroke-miterlimit="10" d="M317.4,147.8l-98.3,156.8h55.2l43.1-72.3
-                c0,0,43.2,72.1,43.1,72.3c-0.1,0.2,55.2,0,55.2,0L317.4,147.8z"/>
-            <path id="v" fill="none" stroke="#444" stroke-width="4" stroke-miterlimit="10" d="M507.1,317.6l-42.6,72.3c0,0-43.3-72-43.1-72.3
-                s-55.6,0-55.6,0l98.7,156.8l98.3-156.8H507.1z"/>
-            <path id="circle" fill="none" stroke="#444" stroke-width="4" stroke-miterlimit="10" d="M396.2,28C242.7,28,118,152.7,118,306.2
-                s124.7,278.2,278.2,278.2s278.2-124.7,278.2-278.2C674,152.7,549.3,28,396.2,28z M396.2,531.2c-124.3,0-225.4-101.1-225.4-225
-                S271.9,80.8,396.2,80.8s225.4,101.1,225.4,225.4S520.1,531.2,396.2,531.2z"/>
-            </g>
-        </svg>
+<!-- <h1>
+     Logo
+    <svg id="loading-logo" data-image="main-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    viewBox="0 0 792 612" enable-background="new 0 0 792 612" xml:space="preserve">
+        <g>
+        <path id="a" fill="none" stroke="#444" stroke-width="4" stroke-miterlimit="10" d="M317.4,147.8l-98.3,156.8h55.2l43.1-72.3
+            c0,0,43.2,72.1,43.1,72.3c-0.1,0.2,55.2,0,55.2,0L317.4,147.8z"/>
+        <path id="v" fill="none" stroke="#444" stroke-width="4" stroke-miterlimit="10" d="M507.1,317.6l-42.6,72.3c0,0-43.3-72-43.1-72.3
+            s-55.6,0-55.6,0l98.7,156.8l98.3-156.8H507.1z"/>
+        <path id="circle" fill="none" stroke="#444" stroke-width="4" stroke-miterlimit="10" d="M396.2,28C242.7,28,118,152.7,118,306.2
+            s124.7,278.2,278.2,278.2s278.2-124.7,278.2-278.2C674,152.7,549.3,28,396.2,28z M396.2,531.2c-124.3,0-225.4-101.1-225.4-225
+            S271.9,80.8,396.2,80.8s225.4,101.1,225.4,225.4S520.1,531.2,396.2,531.2z"/>
+        </g>
+    </svg>
 
-        Hello.
-    </h1>
+    <ul class="loading">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+      </ul>
+
+    Loading
+</h1> -->
+
+{{canvas-scene}}
+<div id="canvas-render">
 
 </div>
+
+<section class="landing-page">
+    <section>
+        <h1>
+            {{gravatar-image  email="tedd.arcuri@gmail.com" size=120}}
+            Hello, my name is Tedd
+        </h1>
+        <h2>Interactive Designer + Developer</h2>
+        {{#link-to 'about' class="pill-btn"}}
+            About Me
+        {{/link-to}}
+
+        {{#link-to 'projects' class="pill-btn"}}
+            See My Work
+        {{/link-to}}
+
+        {{#link-to 'contact' class="pill-btn"}}
+            Get in touch!
+        {{/link-to}}
+    </section>
+
+</section>

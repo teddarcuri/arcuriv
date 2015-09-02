@@ -6,45 +6,65 @@
     </h1>
 
 
-    <div class="flickity-gallery">
-        {{#each model.photos}}
+    <section class="flickity-gallery">
+        <!-- {{#each model.photos}}
             <div class="gallery-cell">
                 <img src={{this}} alt="" />
             </div>
-        {{/each}}
-    </div>
+        {{/each}} -->
 
-
-    <div class="container">
-        <div class="flickity-nav">
-            {{#each model.photos}}
-                <div class="gallery-cell">
-                    <img src={{this}} alt="" />
-                </div>
-            {{/each}}
+        <div class="gallery-cell">
+            <img src={{model.photos}} alt="" />
         </div>
-    </div>
 
-    <div class="project-infobar">
-        <div class="project-types">
+    </section>
+
+
+    <section class="flickity-nav">
+        <!-- {{#each model.photos}}
+            <div class="gallery-cell">
+                <img src={{this}} alt="" />
+            </div>
+        {{/each}} -->
+
+        <div class="gallery-cell">
+            <img src={{model.photos}} alt="" />
+        </div>
+    </section>
+
+    <section class="project-infobar">
+        <!-- <div class="project-types">
             {{model.types}}
-        </div>
+        </div> -->
 
-        {{#if model.url}}
-            <a href={{model.url}} target="_blank" class="pill-btn">View Site</a>
-        {{/if}}
+        <aside>
+            {{#link-to 'projects.index' title="Back to All Projects" class="pill-btn"}}
+                {{fa-icon 'arrow-left'}}
+            {{/link-to}}
 
-        {{#link-to 'projects.index' class="pill-btn"}}
-            Back to All Projects
-        {{/link-to}}
-    </div>
+            {{#if model.url}}
+                <a href={{model.url}} target="_blank" title="View Site" class="pill-btn">{{fa-icon 'eye'}}</a>
+            {{/if}}
+        </aside>
+
+        {{#unless isAuthenticated}}
+            <aside>
+                {{#link-to 'projects.index' class="pill-btn"}}
+                    {{fa-icon 'pencil'}}
+                {{/link-to}}
+
+                <div class="pill-btn" {{action 'deleteProject' model.id}}>
+                    {{fa-icon 'minus'}}
+                </div>
+            </aside>
+        {{/unless}}
+    </section>
 
 
-    <div class="container">
         <div class="col-1-2">
             <h2>Overview</h2>
             <p>
-                {{model.description}}
+                {{model.body}}
             </p>
         </div>
         <div class="col-1-2">
@@ -58,9 +78,8 @@
         <div class="col-1">
             <h3>My Role</h3>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                {{model.body}}
             </p>
         </div>
-    </div>
 
 </div>

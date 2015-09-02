@@ -10,8 +10,7 @@ export default Ember.Controller.extend({
         var isIndex = currentPath ? currentPath.indexOf("index") === 0 : false;
         this.set("isIndex", isIndex);
 
-        $("#main-logo").velocity({ rotateZ: "180deg"}, {
-            duration: 2000,
+        $("#main-logo").velocity("callout.bounce", {         duration: 2000,
             easing: "spring",
             complete: function() {
                 $("#main-logo").velocity({ rotateZ: "0deg"}, 0);
@@ -19,8 +18,8 @@ export default Ember.Controller.extend({
         });
 
         if ( this.get("isIndex") == true ) {
-            this.set("navClasses", "index-page");
-            this.set("hireBtnClasses", "index-page pill-btn");
+            // this.set("navClasses", "index-page");
+            // this.set("hireBtnClasses", "index-page pill-btn");
         } else {
             this.set("navClasses", "");
             this.set("hireBtnClasses", "pill-btn");

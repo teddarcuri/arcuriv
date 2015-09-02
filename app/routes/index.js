@@ -2,7 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     needs: ['application'],
-
     setupController: function() {
         Ember.run.schedule('afterRender', this, function () {
 
@@ -47,15 +46,14 @@ export default Ember.Route.extend({
                     fillEm();
                 }
             });
-            
+
         });
     },
 
     redirect: function() {
-        var route = this;
-        // this redirects / to /about
-        setTimeout( function() {
-            route.transitionTo('about');
-        }, 5000);
+        // this redirects to /about
+        // setTimeout( function() {
+        //     this.transitionTo('about');
+        // }.bind(this), 5000);
     }
 });

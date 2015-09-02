@@ -16,6 +16,10 @@ var app = new EmberApp();
 // modules that you would like to import into your application
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
+
+
+app.import('bower_components/three.js/three.js');
+app.import('bower_components/joaocunha-elevator.js/elevator.js');
 app.import('bower_components/js-md5/js/md5.js');
 app.import('bower_components/easypie/dist/jquery.easypiechart.js');
 app.import('bower_components/flickity/dist/flickity.pkgd.min.js');
@@ -25,4 +29,5 @@ app.import('bower_components/velocity/velocity.ui.js');
 app.import('bower_components/zoom.js/js/zoom.js');
 app.import('bower_components/zoom.js/css/zoom.css');
 app.import('vendor/js/bootstrap/transition.js');
+
 module.exports = app.toTree();

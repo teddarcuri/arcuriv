@@ -1,11 +1,7 @@
 .project-tile {
-    @include span-columns(4 of 12);
+    @include span-columns(6 of 12);
     padding: 10px;
     max-width: 120px;
-    //@include omega(4n);
-    /* margin-right: 25px;
-    margin-bottom: 25px; */
-    //position: relative;
     z-index: 1;
     border-radius: 200%;
 

@@ -1,14 +1,20 @@
+<h1>
+    Work
+</h1>
+
 <div class="projects-container">
-    <div>
-        <h1>My Work</h1>
-    </div>
 
-    <div class="content">
-        {{#each model as |project|}}
-            {{#link-to 'projects.project' project.id}}
-                {{project-tile id=project.id name=project.name thumbnail=project.thumbnail }}
-            {{/link-to}}
-        {{/each}}
-    </div>
+    {{#if isAuthenticated}}
+        {{#link-to 'projects.new'}}
+            <div class="project-tile">
+                <img class="thumbnail circle" src="assets/images/add-tile.png" data-match="" />
+            </div>
+        {{/link-to}}
+    {{/if}}
 
+    {{#each model as |project|}}
+        {{#link-to 'projects.project' project.id}}
+            {{project-tile id=project.id name=project.name thumbnail=project.thumbnail }}
+        {{/link-to}}
+    {{/each}}
 </div>
