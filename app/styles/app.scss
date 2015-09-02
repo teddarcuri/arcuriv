@@ -63,6 +63,7 @@ html, body {
 	@include justify-content(center);
 
 	@include bp(750px) {
+		padding: 20px;
 		@include align-items(flex-start);
 	}
 	h1 {
@@ -73,7 +74,17 @@ html, body {
 		padding: 20px 0px;
 	}
 
+	section {
+		padding: 140px 70px;
+		background: rgba(white, 0.9);
+		@include bp(750px) {
+			padding: 30px;
+		}
+	}
+
 	& .pill-btn {
+		background: rgba(white, 0.5);
+		border-radius: 7px;
 		font-size: 1.2em;
 		padding: 15px 25px;
 	}
@@ -185,7 +196,7 @@ html, body {
 	z-index: 999;
 	position: fixed;
 	top: 20px; right: 20px;
-	font-size: 14px;
+	font-size: 18px;
 	padding: 12px 32px;
 	@include transition(all ease 1s);
 
@@ -200,6 +211,8 @@ html, body {
 		right: -110%;
 	}
 
+	$psuedoTop: 42px;
+
 	// Arrow stuff
  	&:before {
 		content: ' ';
@@ -207,7 +220,7 @@ html, body {
 		width: 0;
 		height: 0;
 		left: 16px;
-		top: 38px;
+		top: $psuedoTop;
 		border: 7px solid;
 		border-color: #222 transparent transparent #222;
 		@include transition(all ease 1s);
@@ -218,7 +231,7 @@ html, body {
 		width: 0;
 		height: 0;
 		left: 18px;
-		top: 38px;
+		top: $psuedoTop;
 		border: 4px solid;
 		border-color: whitesmoke transparent transparent whitesmoke;
 		@include transition(all ease 1s);
