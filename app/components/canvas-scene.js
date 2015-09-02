@@ -4,161 +4,200 @@ export default Ember.Component.extend({
 
     didInsertElement: function() {
         var container;
-var camera, scene, renderer;
+        var camera, scene, renderer;
 
-var textMesh;
+        var textMesh;
 
-var geometry, group;
+        var geometry, group;
 
-var mouseX = 0,
-    mouseY = 0;
+        var mouseX = 0,
+            mouseY = 0;
 
-var windowHalfX = window.innerWidth / 2;
-var windowHalfY = window.innerHeight / 2;
+        var windowHalfX = window.innerWidth / 2;
+        var windowHalfY = window.innerHeight / 2;
 
-document.addEventListener('mousemove', onDocumentMouseMove, false);
+        document.addEventListener('mousemove', onDocumentMouseMove, false);
 
-init();
-animate();
+        init();
+        animate();
 
-function init() {
+        function init() {
 
-    container = document.createElement('div');
-    $("#canvas-render").append(container);
+            ////////////////////////////////////
+            // Setup Container
+            ////////////////////////////////////
+            container = document.createElement('div');
+            $("#canvas-render").append(container);
 
-    camera = new THREE.PerspectiveCamera(30, $("#main-content").width() / $("#main-content").height(), 1, 10000);
-    camera.position.z = 500;
+            ////////////////////////////////////
+            // Choose random scene
+            ////////////////////////////////////
+            var sceneThemes = [
+                {
+                    name: "spheres",
+                    geometry: new THREE.SphereGeometry(1, 30, 30),
+                    color: 0x222222,
+                    lightColor: 0x888888,
+                    cameraZ: 1000,
+                    createObjects: function() {
+                        for (var i = 0; i < 2000; i++) {
+                            var mesh = new THREE.Mesh(theme.geometry, material);
+                            mesh.position.x = Math.random() * 2000 - 1000;
+                            mesh.position.y = Math.random() * 2000 - 1000;
+                            mesh.position.z = Math.random() * 2000 - 1000;
 
-    scene = new THREE.Scene();
-    scene.fog = new THREE.Fog( 0xF5F5F5, 1, 5000 );
+                            mesh.rotation.x = Math.random() * 2 * Math.PI;
+                            mesh.rotation.y = Math.random() * 2 * Math.PI;
 
-    var geometry = new THREE.SphereGeometry(1, 10, 10);
-    var material = new THREE.MeshLambertMaterial({
-        color: 0x000000,
-        emissive: 0x444444
-    });
+                            mesh.matrixAutoUpdate = false;
+                            mesh.updateMatrix();
 
-    group = new THREE.Group();
+                            group.add(mesh);
+                        }
+                    }
+                },
+                {
+                    name: "torusKnot",
+                    geometry: new THREE.TorusKnotGeometry( 200, 30, 400, 16 ),
+                    color: 0xcccccc,
+                    lightColor: 0xddddddd,
+                    cameraZ: 1000,
+                    createObjects: function() {
+                        var mesh = new THREE.Mesh(theme.geometry, material);
 
-    for (var i = 0; i < 4000; i++) {
+                        mesh.matrixAutoUpdate = false;
+                        mesh.updateMatrix();
 
-        var mesh = new THREE.Mesh(geometry, material);
-        mesh.position.x = Math.random() * 2000 - 1000;
-        mesh.position.y = Math.random() * 2000 - 1000;
-        mesh.position.z = Math.random() * 2000 - 1000;
+                        group.add(mesh);
+                    }
+                },
+                {
+                    name: "cubes",
+                    geometry: new THREE.CubeGeometry(5, 5, 10),
+                    color: 0xcccccc,
+                    lightColor: 0xddddddd,
+                    cameraZ: 1000,
+                    createObjects: function() {
+                        for (var i = 0; i < 2000; i++) {
+                            var mesh = new THREE.Mesh(theme.geometry, material);
+                            mesh.position.x = Math.random() * 2000 - 1000;
+                            mesh.position.y = Math.random() * 2000 - 1000;
+                            mesh.position.z = Math.random() * 2000 - 1000;
 
-        mesh.rotation.x = Math.random() * 2 * Math.PI;
-        mesh.rotation.y = Math.random() * 2 * Math.PI;
+                            mesh.rotation.x = Math.random() * 2 * Math.PI;
+                            mesh.rotation.y = Math.random() * 2 * Math.PI;
 
-        mesh.matrixAutoUpdate = false;
-        mesh.updateMatrix();
+                            mesh.matrixAutoUpdate = false;
+                            mesh.updateMatrix();
 
-        group.add(mesh);
+                            group.add(mesh);
+                        }
+                    }
+                }
+            ];
 
-    }
+            // Select a random theme
+            var theme = sceneThemes[Math.floor(Math.random() * sceneThemes.length)];
 
-    scene.add(group);
+            ////////////////////////////////////
+            // Setup Scene
+            ////////////////////////////////////
+            scene = new THREE.Scene();
+            scene.fog = new THREE.Fog( 0xF5F5F5, 1, 5000 );
 
-    // Text
-    // var textMaterial = new THREE.MeshPhongMaterial({
-    //     color: 0x000000,
-    //     emissive: 0xaaaaaaa
-    // });
-    //
-    // var textGeom = new THREE.TextGeometry("Hello, My name is Tedd", {
-    //     font: "proxima nova rg",
-    //     weight: "bold",
-    //     style: "normal",
-    //     height: 5,
-    //     size: 125
-    // });
-    //
-    //  var subTextGeom = new THREE.TextGeometry("designer + developer", {
-    //     font: "proxima nova rg",
-    //     weight: "bold",
-    //     style: "normal",
-    //     height: 5,
-    //     size: 50
-    // });
-    //
-    // textMesh = new THREE.Mesh(textGeom, textMaterial);
-    // subTextMesh = new THREE.Mesh(subTextGeom, textMaterial);
-    //
-    // textMesh.position.x = -1000;
-    // textMesh.position.z = -500;
-    //
-    // subTextMesh.position.x = -500;
-    // subTextMesh.position.y = -200;
-    // subTextMesh.position.z = -1000;
-    //
-    // scene.add(textMesh);
-    // scene.add(subTextMesh);
+            // Set Material
+            var material = new THREE.MeshLambertMaterial({
+                emissive: theme.color
+            });
 
-    // create a point light
-    var pointLight = new THREE.DirectionalLight(0xFFFFFF);
+            // Create the group to place the objects
+            group = new THREE.Group();
 
-    // set its position
-    pointLight.position.x = 20;
-    pointLight.position.y = 120;
-    pointLight.position.z = 0;
+            // Create the objects
+            theme.createObjects();
 
-    // add to the scene
-    scene.add(pointLight);
+            // Add Group to scene
+            scene.add(group);
 
-    renderer = new THREE.WebGLRenderer({ antialias: true } );
-    renderer.setClearColor(0xF5F5F5);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize($("#main-content").width(), $("#main-content").height());
-    renderer.sortObjects = false;
+            ////////////////////////////////////
+            // Setup Camera
+            ////////////////////////////////////
+            camera = new THREE.PerspectiveCamera(30, $("#main-content").width() / $("#main-content").height(), 1, 10000);
+            camera.position.z = theme.cameraZ;
 
-    container.appendChild(renderer.domElement);
-    window.addEventListener('resize', onWindowResize, false);
-}
+            ////////////////////////////////////
+            // Lighting
+            ////////////////////////////////////
 
-function onWindowResize() {
-    windowHalfX = $("#main-content").width() / 2;
-    windowHalfY = $("#main-content").height() / 2;
+            // create a point light
+            var pointLight = new THREE.DirectionalLight(theme.lightColor);
 
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+            // set its position
+            pointLight.position.x = 20;
+            pointLight.position.y = 120;
+            pointLight.position.z = 0;
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
-}
+            // add to the scene
+            scene.add(pointLight);
 
-function onDocumentMouseMove(event) {
-    mouseX = (event.clientX - windowHalfX) * 2;
-    mouseY = (event.clientY - windowHalfY) * 2;
-}
+            ////////////////////////////////////
+            // Rendering
+            ////////////////////////////////////
 
-function animate() {
-    requestAnimationFrame(animate);
+            renderer = new THREE.WebGLRenderer({ antialias: true } );
+            renderer.setClearColor(0xF5F5F5);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize($("#main-content").width(), $("#main-content").height());
+            renderer.sortObjects = false;
 
-    render();
-}
+            container.appendChild(renderer.domElement);
+            window.addEventListener('resize', onWindowResize, false);
+        }
 
-function render() {
+        function onWindowResize() {
+            windowHalfX = $("#main-content").width() / 2;
+            windowHalfY = $("#main-content").height() / 2;
 
-    var time = Date.now() * 0.001;
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
 
-    var rx = Math.sin(time * 0.3) * 0.5,
-        ry = Math.sin(time * 0.3) * 0.5,
-        rz = Math.sin(time * 0.3) * 0.5;
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
 
-    camera.position.x += (mouseX - camera.position.x) * .05;
-    camera.position.y += (-mouseY - camera.position.y) * .05;
+        function onDocumentMouseMove(event) {
+            mouseX = (event.clientX - windowHalfX) * 2;
+            mouseY = (event.clientY - windowHalfY) * 2;
+        }
 
-    camera.lookAt(scene.position);
+        function animate() {
+            requestAnimationFrame(animate);
 
-   // textMesh.rotation.x = rx / 4;
-   // textMesh.rotation.z = rz / 4;
+            render();
+        }
 
-    group.rotation.x = rx / 5;
-    group.rotation.y = ry / 5;
-    group.rotation.z = rz / 5;
+        function render() {
 
-    renderer.render(scene, camera);
+            var time = Date.now() * 0.001;
 
-}
+            var rx = Math.sin(time * 0.3) * 0.5,
+                ry = Math.sin(time * 0.3) * 0.5,
+                rz = Math.sin(time * 0.3) * 0.5;
+
+            camera.position.x += (mouseX - camera.position.x) * .05;
+            camera.position.y += (-mouseY - camera.position.y) * .05;
+
+            camera.lookAt(scene.position);
+
+           // textMesh.rotation.x = rx / 4;
+           // textMesh.rotation.z = rz / 4;
+
+            group.rotation.x = rx / 5;
+            group.rotation.y = ry / 5;
+            group.rotation.z = rz / 5;
+
+            renderer.render(scene, camera);
+
+        }
     }
 
 });
