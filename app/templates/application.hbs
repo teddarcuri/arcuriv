@@ -5,10 +5,9 @@
 
 <div class="flex-container">
 	<!-- Navigation -->
-	<nav id="main-nav" class={{navClasses}}>
-
-		<section>
-			{{#link-to 'index'}}
+	<section id="main-nav" class={{navClasses}}>
+		<nav>
+			{{#link-to 'index' id="main-logo"}}
 				<svg id="main-logo" data-image="main-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 			       viewBox="0 0 792 612" enable-background="new 0 0 792 612" xml:space="preserve">
 				    <g>
@@ -44,8 +43,12 @@
 					 {{/link-to}}
 					</li>
 				</ul>
-		</section>
-	</nav>
+
+		</nav>
+
+		{{social-media-icons}}
+
+	</section>
 
 	<!-- Content Area -->
 	<main id="main-content">

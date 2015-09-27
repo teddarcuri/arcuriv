@@ -26,6 +26,11 @@
 	@include display(flex);
 	@include align-items(center);
 	@include justify-content(space-between);
+	@include bp(750px) {
+		position: fixed;
+		top: 0;
+		padding: 25px 0px;
+	}
 }
 
 

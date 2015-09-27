@@ -43,8 +43,9 @@ h1 {
 
     @include bp(750px) {
         font-size: 3em;
-        padding: 30px 10px 0px 20px;
+        padding: 100px 10px 0px 20px;
         img {
+            display: none;
             margin-bottom: 10px;
             width: 50px !important;
             height: 50px !important;

@@ -5,6 +5,7 @@ export default Ember.Component.extend({
     didInsertElement: function() {
         var container;
         var camera, scene, renderer;
+        var theme;
 
         var textMesh;
 
@@ -37,10 +38,11 @@ export default Ember.Component.extend({
                     name: "spheres",
                     geometry: new THREE.SphereGeometry(1, 30, 30),
                     color: 0x222222,
-                    lightColor: 0x888888,
-                    cameraZ: 1000,
+                    lightColor: 0xcccccc,
+                    cameraZ: 0,
+                    cameraVelocity: 2,
                     createObjects: function() {
-                        for (var i = 0; i < 2000; i++) {
+                        for (var i = 0; i < 5000; i++) {
                             var mesh = new THREE.Mesh(theme.geometry, material);
                             mesh.position.x = Math.random() * 2000 - 1000;
                             mesh.position.y = Math.random() * 2000 - 1000;
@@ -58,10 +60,11 @@ export default Ember.Component.extend({
                 },
                 {
                     name: "torusKnot",
-                    geometry: new THREE.TorusKnotGeometry( 200, 30, 400, 16 ),
+                    geometry: new THREE.TorusKnotGeometry( 400, 70, 400, 16 ),
                     color: 0xcccccc,
                     lightColor: 0xddddddd,
                     cameraZ: 1000,
+                    cameraVelocity: 2,
                     createObjects: function() {
                         var mesh = new THREE.Mesh(theme.geometry, material);
 
@@ -73,10 +76,11 @@ export default Ember.Component.extend({
                 },
                 {
                     name: "cubes",
-                    geometry: new THREE.CubeGeometry(5, 5, 10),
-                    color: 0xcccccc,
-                    lightColor: 0xddddddd,
-                    cameraZ: 1000,
+                    geometry: new THREE.CubeGeometry(12, 12, 12),
+                    color: 0x3890b0,
+                    lightColor: 0xd9cd42,
+                    cameraZ: 2500,
+                    cameraVelocity: 2,
                     createObjects: function() {
                         for (var i = 0; i < 2000; i++) {
                             var mesh = new THREE.Mesh(theme.geometry, material);
@@ -94,10 +98,33 @@ export default Ember.Component.extend({
                         }
                     }
                 }
+                // {
+                //     name: "cubes",
+                //     geometry: new THREE.CubeGeometry(3, 3, 6),
+                //     color: 0xcccccc,
+                //     lightColor: 0xddddddd,
+                //     cameraZ: 1000,
+                //     createObjects: function() {
+                //         for (var i = 0; i < 4000; i++) {
+                //             var mesh = new THREE.Mesh(theme.geometry, material);
+                //             mesh.position.x = Math.random() * 2000 - 1000;
+                //             mesh.position.y = Math.random() * 2000 - 1000;
+                //             mesh.position.z = Math.random() * 2000 - 1000;
+                //
+                //             mesh.rotation.x = Math.random() * 2 * Math.PI;
+                //             mesh.rotation.y = Math.random() * 2 * Math.PI;
+                //
+                //             mesh.matrixAutoUpdate = false;
+                //             mesh.updateMatrix();
+                //
+                //             group.add(mesh);
+                //         }
+                //     }
+                // }
             ];
 
             // Select a random theme
-            var theme = sceneThemes[Math.floor(Math.random() * sceneThemes.length)];
+            theme = sceneThemes[Math.floor(Math.random() * sceneThemes.length)];
 
             ////////////////////////////////////
             // Setup Scene
@@ -122,7 +149,7 @@ export default Ember.Component.extend({
             ////////////////////////////////////
             // Setup Camera
             ////////////////////////////////////
-            camera = new THREE.PerspectiveCamera(30, $("#main-content").width() / $("#main-content").height(), 1, 10000);
+            camera = new THREE.PerspectiveCamera(60, $("#main-content").width() / $("#main-content").height(), 1, 10000);
             camera.position.z = theme.cameraZ;
 
             ////////////////////////////////////
@@ -165,8 +192,8 @@ export default Ember.Component.extend({
         }
 
         function onDocumentMouseMove(event) {
-            mouseX = (event.clientX - windowHalfX) * 2;
-            mouseY = (event.clientY - windowHalfY) * 2;
+            mouseX = (event.clientX - windowHalfX) * theme.cameraVelocity;
+            mouseY = (event.clientY - windowHalfY) * theme.cameraVelocity;
         }
 
         function animate() {

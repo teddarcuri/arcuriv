@@ -3,6 +3,7 @@
     vertical-align: middle;
     border-radius: 200%;
     overflow: hidden;
+    margin: 20px 0px;
     @include bp(600px) {
         img {
             width: 50px;

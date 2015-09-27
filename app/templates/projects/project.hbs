@@ -39,25 +39,25 @@
 
         <aside>
             {{#link-to 'projects.index' title="Back to All Projects" class="pill-btn"}}
-                {{fa-icon 'arrow-left'}}
+                {{fa-icon 'arrow-left'}} &nbsp; Back to all projects
             {{/link-to}}
 
             {{#if model.url}}
-                <a href={{model.url}} target="_blank" title="View Site" class="pill-btn">{{fa-icon 'eye'}}</a>
+                <a href={{model.url}} target="_blank" title="View Site" class="pill-btn">{{fa-icon 'eye'}}  &nbsp; View Site</a>
             {{/if}}
         </aside>
 
-        {{#unless isAuthenticated}}
+        {{#if isAuthenticated}}
             <aside>
                 {{#link-to 'projects.index' class="pill-btn"}}
-                    {{fa-icon 'pencil'}}
+                    {{fa-icon 'pencil'}} &nbsp; Edit
                 {{/link-to}}
 
                 <div class="pill-btn" {{action 'deleteProject' model.id}}>
-                    {{fa-icon 'minus'}}
+                    {{fa-icon 'minus'}} &nbsp; Delete
                 </div>
             </aside>
-        {{/unless}}
+        {{/if}}
     </section>
 
 
