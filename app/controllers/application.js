@@ -17,7 +17,7 @@ export default Ember.Controller.extend({
             }
         });
 
-        if ( this.get("isIndex") == true ) {
+        if ( this.get("isIndex") === true ) {
             // this.set("navClasses", "index-page");
             // this.set("hireBtnClasses", "index-page pill-btn");
         } else {

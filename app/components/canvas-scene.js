@@ -3,17 +3,19 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
     didInsertElement: function() {
-        var container;
-        var camera, scene, renderer;
-        var theme;
+        // Scene Elements
+        var container,
+            camera,
+            scene,
+            renderer,
+            theme,
+            group;
 
-        var textMesh;
-
-        var geometry, group;
-
+        // Mouse Position
         var mouseX = 0,
             mouseY = 0;
 
+        // Window Size
         var windowHalfX = window.innerWidth / 2;
         var windowHalfY = window.innerHeight / 2;
 
@@ -33,98 +35,30 @@ export default Ember.Component.extend({
             ////////////////////////////////////
             // Choose random scene
             ////////////////////////////////////
-            var sceneThemes = [
-                {
-                    name: "spheres",
-                    geometry: new THREE.SphereGeometry(1, 30, 30),
-                    color: 0x222222,
-                    lightColor: 0xcccccc,
-                    cameraZ: 0,
-                    cameraVelocity: 2,
-                    createObjects: function() {
-                        for (var i = 0; i < 5000; i++) {
-                            var mesh = new THREE.Mesh(theme.geometry, material);
-                            mesh.position.x = Math.random() * 2000 - 1000;
-                            mesh.position.y = Math.random() * 2000 - 1000;
-                            mesh.position.z = Math.random() * 2000 - 1000;
+            theme = {
+                        name: "spheres",
+                        geometry: new THREE.SphereGeometry(1, 30, 30),
+                        color: 0x222222,
+                        lightColor: 0xcccccc,
+                        cameraZ: 0,
+                        cameraVelocity: 2,
+                        createObjects: function() {
+                            for (var i = 0; i < 5000; i++) {
+                                var mesh = new THREE.Mesh(theme.geometry, material);
+                                mesh.position.x = Math.random() * 2000 - 1000;
+                                mesh.position.y = Math.random() * 2000 - 1000;
+                                mesh.position.z = Math.random() * 2000 - 1000;
 
-                            mesh.rotation.x = Math.random() * 2 * Math.PI;
-                            mesh.rotation.y = Math.random() * 2 * Math.PI;
+                                mesh.rotation.x = Math.random() * 2 * Math.PI;
+                                mesh.rotation.y = Math.random() * 2 * Math.PI;
 
-                            mesh.matrixAutoUpdate = false;
-                            mesh.updateMatrix();
+                                mesh.matrixAutoUpdate = false;
+                                mesh.updateMatrix();
 
-                            group.add(mesh);
+                                group.add(mesh);
+                            }
                         }
-                    }
-                },
-                {
-                    name: "torusKnot",
-                    geometry: new THREE.TorusKnotGeometry( 400, 70, 400, 16 ),
-                    color: 0xcccccc,
-                    lightColor: 0xddddddd,
-                    cameraZ: 1000,
-                    cameraVelocity: 2,
-                    createObjects: function() {
-                        var mesh = new THREE.Mesh(theme.geometry, material);
-
-                        mesh.matrixAutoUpdate = false;
-                        mesh.updateMatrix();
-
-                        group.add(mesh);
-                    }
-                },
-                {
-                    name: "cubes",
-                    geometry: new THREE.CubeGeometry(12, 12, 12),
-                    color: 0x3890b0,
-                    lightColor: 0xd9cd42,
-                    cameraZ: 2500,
-                    cameraVelocity: 2,
-                    createObjects: function() {
-                        for (var i = 0; i < 2000; i++) {
-                            var mesh = new THREE.Mesh(theme.geometry, material);
-                            mesh.position.x = Math.random() * 2000 - 1000;
-                            mesh.position.y = Math.random() * 2000 - 1000;
-                            mesh.position.z = Math.random() * 2000 - 1000;
-
-                            mesh.rotation.x = Math.random() * 2 * Math.PI;
-                            mesh.rotation.y = Math.random() * 2 * Math.PI;
-
-                            mesh.matrixAutoUpdate = false;
-                            mesh.updateMatrix();
-
-                            group.add(mesh);
-                        }
-                    }
-                }
-                // {
-                //     name: "cubes",
-                //     geometry: new THREE.CubeGeometry(3, 3, 6),
-                //     color: 0xcccccc,
-                //     lightColor: 0xddddddd,
-                //     cameraZ: 1000,
-                //     createObjects: function() {
-                //         for (var i = 0; i < 4000; i++) {
-                //             var mesh = new THREE.Mesh(theme.geometry, material);
-                //             mesh.position.x = Math.random() * 2000 - 1000;
-                //             mesh.position.y = Math.random() * 2000 - 1000;
-                //             mesh.position.z = Math.random() * 2000 - 1000;
-                //
-                //             mesh.rotation.x = Math.random() * 2 * Math.PI;
-                //             mesh.rotation.y = Math.random() * 2 * Math.PI;
-                //
-                //             mesh.matrixAutoUpdate = false;
-                //             mesh.updateMatrix();
-                //
-                //             group.add(mesh);
-                //         }
-                //     }
-                // }
-            ];
-
-            // Select a random theme
-            theme = sceneThemes[Math.floor(Math.random() * sceneThemes.length)];
+                    };
 
             ////////////////////////////////////
             // Setup Scene
@@ -210,8 +144,8 @@ export default Ember.Component.extend({
                 ry = Math.sin(time * 0.3) * 0.5,
                 rz = Math.sin(time * 0.3) * 0.5;
 
-            camera.position.x += (mouseX - camera.position.x) * .05;
-            camera.position.y += (-mouseY - camera.position.y) * .05;
+            camera.position.x += (mouseX - camera.position.x) * 0.05;
+            camera.position.y += (-mouseY - camera.position.y) * 0.05;
 
             camera.lookAt(scene.position);
 

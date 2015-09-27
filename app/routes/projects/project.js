@@ -18,7 +18,7 @@ export default Ember.Route.extend({
                     $("#alert-bar").addClass('active');
                     setTimeout(function(){
                         $("#alert-bar").removeClass('active');
-                    }, 3000),
+                    }, 3000);
                     route.transitionTo('projects.index');
                 }
             });

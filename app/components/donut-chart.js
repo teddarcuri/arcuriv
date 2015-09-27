@@ -5,8 +5,6 @@ export default Ember.Component.extend({
     classNames: ['donut-chart-container'],
 
     _initializeChart: function() {
-      var self = this;
-
       $('.donut-chart').easyPieChart({
             scaleColor: false,
             scaleLength: 0,

@@ -4,7 +4,7 @@ export default Ember.Route.extend({
     model: function() {
             return $.getJSON("http://localhost:1337/project");
     },
-    setupController: function(controller, model){
+    setupController: function(){
        Ember.run.schedule('afterRender', this, function () {
          $(".project-tile").velocity("transition.slideRightIn", {duration: 1250, stagger: 150, drag: true});
        });
@@ -22,7 +22,7 @@ export default Ember.Route.extend({
                   $("#alert-bar").addClass("active");
                   setTimeout(function(){
                       $("#alert-bar").removeClass('active');
-                  }, 3000)
+                  }, 3000);
               }
             });
        }
