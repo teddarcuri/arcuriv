@@ -13,6 +13,7 @@ Router.map(function() {
     this.route('project', {path: '/:project_id'});
   });
 
+  this.route('login');
 });
 
 export default Router;
