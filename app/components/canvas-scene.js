@@ -144,13 +144,10 @@ export default Ember.Component.extend({
                 ry = Math.sin(time * 0.3) * 0.5,
                 rz = Math.sin(time * 0.3) * 0.5;
 
-            camera.position.x += (mouseX - camera.position.x) * 0.05;
-            camera.position.y += (-mouseY - camera.position.y) * 0.05;
+            camera.position.x += (mouseX - camera.position.x) * 0.02;
+            camera.position.y += (-mouseY - camera.position.y) * 0.02;
 
             camera.lookAt(scene.position);
-
-           // textMesh.rotation.x = rx / 4;
-           // textMesh.rotation.z = rz / 4;
 
             group.rotation.x = rx / 5;
             group.rotation.y = ry / 5;

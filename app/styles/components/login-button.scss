@@ -1,0 +1,21 @@
+#login {
+    position: absolute;
+    top: 0; left: 0;
+    &:hover {
+        .login-btn {
+            @include transform(translateX(0%));
+        }
+    }
+}
+
+.login-btn {
+    background: #fff;
+    padding: 10px;
+    color: #333;
+    display: inline-block;
+    @include transition(all ease 0.5s);
+    @include transform(translateX(-100%));
+    &.active {
+        @include transform(translateX(0%));
+    }
+}

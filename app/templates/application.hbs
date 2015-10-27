@@ -6,6 +6,13 @@
 <div class="flex-container">
 	<!-- Navigation -->
 	<section id="main-nav" class={{navClasses}}>
+
+		<div id="login">
+			{{#link-to 'login' classNames="login-btn"}}
+				{{fa-icon 'fa-lock'}}
+			{{/link-to}}
+		</div>
+
 		<nav>
 			{{#link-to 'index' id="main-logo"}}
 				<svg id="main-logo" data-image="main-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

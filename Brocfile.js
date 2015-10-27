@@ -19,7 +19,6 @@ var app = new EmberApp();
 
 
 app.import('bower_components/three.js/three.js');
-app.import('bower_components/joaocunha-elevator.js/elevator.js');
 app.import('bower_components/js-md5/js/md5.js');
 app.import('bower_components/easypie/dist/jquery.easypiechart.js');
 app.import('bower_components/flickity/dist/flickity.pkgd.min.js');

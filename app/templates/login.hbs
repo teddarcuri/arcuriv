@@ -1,1 +1,9 @@
-{{outlet}}
+<div class="container">
+    <h1>Login</h1>
+    <form {{action 'attemptLogin' on="submit"}}>
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        <button type="submit" name="button">Submit</button>
+    </form>
+
+</div>
